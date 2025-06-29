@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+  namespace: webapp
+  labels:
+    app: webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - name: nodejs-app
+          image: parimal5/node-app-sample
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          env:
+            - name: APP_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: webapp-config
+                  key: APP_ENV
+            - name: API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: webapp-config
+                  key: API_URL
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: DB_PASSWORD
+          volumeMounts:
+            - name: config-vol
+              mountPath: /etc/config
+              readOnly: true
+            - name: secret-vol
+              mountPath: /etc/secret
+              readOnly: true
+      volumes:
+        - name: config-vol
+          configMap:
+            name: webapp-config
+        - name: secret-vol
+          secret:
+            secretName: webapp-secret
