@@ -19,8 +19,8 @@ kind create cluster
 ### 2. Apply Kubernetes Manifests
 
 ```bash
-kubectl create ns webapp         # Optional
-kubectl apply -f k8s/ -n webapp                # Or omit -n if not using namespace
+kubectl create ns webapp
+kubectl apply -f k8s/ -n webapp
 ```
 
 ## 3. Verify Resources
