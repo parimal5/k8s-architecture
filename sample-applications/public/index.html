@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Node.js App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Simple Node.js Application</h1>
+        <p>A basic frontend connected to Express backend</p>
+      </header>
+
+      <main>
+        <section class="api-section">
+          <h2>Backend API Test</h2>
+          <button id="helloBtn" class="btn btn-primary">
+            Get Hello Message
+          </button>
+          <div id="helloResponse" class="response"></div>
+        </section>
+
+        <section class="users-section">
+          <h2>Users Management</h2>
+          <button id="getUsersBtn" class="btn btn-secondary">
+            Get All Users
+          </button>
+          <div id="usersResponse" class="response"></div>
+
+          <div class="form-container">
+            <h3>Add New User</h3>
+            <form id="userForm">
+              <input type="text" id="userName" placeholder="Name" required />
+              <input type="email" id="userEmail" placeholder="Email" required />
+              <button type="submit" class="btn btn-success">Add User</button>
+            </form>
+            <div id="addUserResponse" class="response"></div>
+          </div>
+        </section>
+
+        <section class="info-section">
+          <h2>Application Info</h2>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>Frontend</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="info-card">
+              <h3>Backend</h3>
+              <p>Node.js with Express</p>
+            </div>
+            <div class="info-card">
+              <h3>API Endpoints</h3>
+              <p>/api/hello, /api/users</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Simple Node.js App</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
