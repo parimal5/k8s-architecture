@@ -6,7 +6,7 @@ This project demonstrates deploying a basic custom **Node.js web application** t
 
 ## Demo App Used
 
-[sample-applications](sample-applications/)
+[sample-applications](../sample-applications/)
 
 ## 🚀 How to Run
 
