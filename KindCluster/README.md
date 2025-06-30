@@ -1,4 +1,4 @@
-# Kind Cluster Setup
+# Kind Cluster Setup (Windows)
 
 ## 📦 Cluster Configuration
 

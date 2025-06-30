@@ -18,15 +18,14 @@ This repository contains a collection of Kubernetes projects, ranging from begin
 **Clone this repo**
 
 ```bash
-git clone https://github.com/yourusername/k8s-nodejs-projects.git
-cd k8s-nodejs-projects
+git clone https://github.com/parimal5/k8s-architecture.git
+cd k8s-architecture
 ```
 
 **Build Docker image**
 
 ```bash
-cd app/
-docker build -t my-node-app:latest .
+docker build -t parimal5/node-app-sample:latest .
 ```
 
 **Create Kind cluster**
