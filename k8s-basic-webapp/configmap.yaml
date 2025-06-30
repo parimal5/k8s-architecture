@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: webapp-config
   namespace: webapp
+  labels:
+    app: webapp
 data:
   APP_ENV: production
   API_URL: "http://example.com"
