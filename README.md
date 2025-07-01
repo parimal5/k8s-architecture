@@ -28,7 +28,7 @@ cd k8s-architecture
 docker build -t parimal5/node-app-sample:latest .
 ```
 
-**Create Kind cluster**
+**Create Kind cluster**<br>
 See detailed steps in [Kind Cluster Setup](./KindCluster/)
 
 ## 🧪 Testing & Validation
