@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shared-volume-pod
+  labels:
+    app: shared-demo
+spec:
+  volumes:
+    - name: shared-data
+      emptyDir: {}
+
+  containers:
+    - name: app-container
+      image: busybox
+      command: ["/bin/sh", "-c"]
+      args:
+        - |
+          echo "Hello from main container" > /shared-data/hello.txt;
+          sleep 3600
+      volumeMounts:
+        - name: shared-data
+          mountPath: /shared-data
+
+    - name: sidecar-container
+      image: busybox
+      command: ["/bin/sh", "-c"]
+      args:
+        - |
+          echo "Sidecar watching file:"; 
+          tail -f /shared-data/hello.txt
+      volumeMounts:
+        - name: shared-data
+          mountPath: /shared-data

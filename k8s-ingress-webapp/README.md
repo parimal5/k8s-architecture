@@ -64,7 +64,7 @@ When using the NGINX Ingress controller on a Kind cluster, the controller pod ma
 
 ### 📌 Root Cause
 
-The official Ingress deployment expects a node labeled with ingress-ready=true, but Kind nodes do not have this label by default. Since only the control-plane node has ports 80/443 mapped (via extraPortMappings), the controller must run there.
+The official Ingress deployment expects a node labeled with `ingress-ready=true`, but Kind nodes do not have this label by default. Since only the control-plane node has ports 80/443 mapped (via extraPortMappings), the controller must run there.
 
 ### ✅ Fix
 
