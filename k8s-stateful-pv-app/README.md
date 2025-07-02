@@ -15,22 +15,6 @@ This repository contains practice examples for working with Kubernetes volumes u
 - How to use storage with **Deployments** and **StatefulSets**
 
 ---
-
-## 📁 Structure
-
-```bash
-.
-├── static/
-│   ├── static-pv.yaml
-│   ├── static-pvc.yaml
-│   └── static-deployment.yaml
-├── dynamic/
-│   ├── local-path-storageclass.yaml
-│   ├── dynamic-pvc.yaml
-│   └── dynamic-statefulset.yaml
-└── README.md
-```
-
 ## 🔹 Static Provisioning
 
 With static provisioning:
