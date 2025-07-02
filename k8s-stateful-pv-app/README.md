@@ -14,7 +14,6 @@ This repository contains practice examples for working with Kubernetes volumes u
 - Understand **access modes** (`RWO`, `RWX`, `ROX`)
 - How to use storage with **Deployments** and **StatefulSets**
 
----
 ## 🔹 Static Provisioning
 
 With static provisioning:
