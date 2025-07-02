@@ -21,29 +21,29 @@ This is a common pattern used in real-world workloads like logging agents, file 
 - Main Container (`app-container`): Writes "Hello from main container" into `/shared-data/hello.txt`.
 
 - Sidecar Container (`sidecar-container`): Continuously tails the contents of `/shared-data/hello.txt`.
-  `Both containers mount the same`emptyDir`volume at`/shared-data`, allowing data sharing during pod lifecycle.
+  Both containers mount the same `emptyDir` volume at `/shared-data`, allowing data sharing during pod lifecycle.
 
 ## 📦 Deployment Steps
 
-- Apply the Pod manifest:
+Apply the Pod manifest:
 
 ```bash
 kubectl apply -f multi-container-pod.yaml
 ```
 
-- Verify the Pod is running:
+Verify the Pod is running:
 
 ```bash
 kubectl get pods
 ```
 
-- Check logs of the sidecar container:
+Check logs of the sidecar container:
 
 ```bash
 kubectl logs shared-volume-pod -c sidecar-container
 ```
 
-- You should see output similar to:
+You should see output similar to:
 
 ```bash
 Sidecar watching file:

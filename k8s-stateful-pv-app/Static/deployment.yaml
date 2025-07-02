@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-deployment
+spec:
+  replicas: 1 # Static PV can only be mounted once (ReadWriteOnce)
+  selector:
+    matchLabels:
+      app: static-app
+  template:
+    metadata:
+      labels:
+        app: static-app
+    spec:
+      containers:
+        - name: app
+          image: busybox:1.36.1
+          command: ["sleep", "3600"]
+          volumeMounts:
+            - name: static-vol
+              mountPath: /data
+      volumes:
+        - name: static-vol
+          persistentVolumeClaim:
+            claimName: static-pvc

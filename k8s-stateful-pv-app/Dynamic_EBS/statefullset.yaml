@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nodejs-app
+spec:
+  serviceName: "nodejs-headless"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+        - name: node-container
+          image: parimal5/nodejs-app
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: data
+              mountPath: /usr/src/app/data
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: ebs-sc
+        resources:
+          requests:
+            storage: 2Gi
