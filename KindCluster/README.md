@@ -1,42 +1,42 @@
-# Kind Cluster Setup (Windows)
+# KIND Cluster Setup
 
-## 📦 Cluster Configuration
+Quick setup for a multi-node Kubernetes cluster using KIND (Kubernetes in Docker).
 
-[Kind Configuration](./kind-config.yaml)
+## Prerequisites
 
-**This creates a Kind cluster with:**
+- **Docker Desktop** running
+- **kubectl** installed
+- **KIND** installed - [Installation Guide](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
 
+## Cluster Configuration
+
+**File:** `kind-config.yaml`
+
+Creates a cluster with:
 - 1 control-plane node
 - 2 worker nodes
 
-## 🚀 Create the Cluster
+## Setup Commands
 
-Make sure Docker Desktop is running.
-
+### Create Cluster
 ```bash
 kind create cluster --config=kind-config.yaml
 ```
 
-## ❌ Delete the Cluster
-
-To delete the cluster:
-
-```bash
-kind delete cluster --name kind
-```
-
-## ✅ Verify the Cluster
-
-After creation, confirm it’s working:
-
+### Verify Cluster
 ```bash
 kubectl cluster-info --context kind-kind
 kubectl get nodes
 ```
 
-## 📝 Notes
+### Delete Cluster
+```bash
+kind delete cluster --name kind
+```
 
-This setup uses the default cluster name: kind
 
-- Ensure you have Docker Desktop and kubectl installed on Windows
-- You can customize kind-config.yaml for port mappings, extra mounts, or enabling Ingress
+## Notes
+- Uses default cluster name: `kind`
+- Requires Docker Desktop to be running
+- Customize `kind-config.yaml` for port mappings or ingress setup
+- For ingress configuration with port mappings, see [kind-config-ingress.yaml](./kind-config-ingress.yaml) example
